@@ -1,0 +1,14 @@
+#
+# The following to /etc/rc.local to improve redis-server performance
+#
+
+# REDIS settings (not transparent huge pages)
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo 512 > /proc/sys/net/core/somaxconn
+
+# Run redis server
+su - oracle /home/oracle/redis/runRedis.sh
+
+#
+# End of Redis-server tweaks
+#
